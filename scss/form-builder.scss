@@ -2,10 +2,8 @@
   .react-form-builder-preview {
     // position: relative;
     // width: 70%;
-    border: 1px solid #ddd;
-    background: #fafafa;
+    background: #FFFFFF;
     padding: 10px;
-    box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
     min-height: 750px;
     width:100%;
 
@@ -55,19 +53,24 @@
       display: block !important;
     }
 
+    .edit-form-wrapper{
+      background: #FFFFFF;
+      box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.04), 0px 1px 7px rgba(0, 0, 0, 0.03);
+      border-radius: 16px;
+      margin-bottom: 30px;
+    }
+
     .edit-form {
-      position: fixed;
-      background: #fafafa;
-      padding: 30px;
+      background: #FFFFFF;
+      padding: 5px;
       border-left: 0;
       box-shadow: none;
       top: 0;
-      left: -1000px;
-      height: 100%;
-      // width: 0;
-      width: 715px;
-      transition: .5s;
-      overflow-y: auto;
+      right: -15px;
+      min-height: 100px;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
 
       h4, .dismiss-edit {
         margin-bottom: 30px;
@@ -142,7 +145,7 @@
       -ms-user-select: none;
       user-select: none;
       .rfb-item {
-        padding: 10px 20px;
+        padding: 5px 10px;
         &.SortableItem {
           position: relative;
           .form-group {
@@ -167,7 +170,7 @@
           &.is-dragging {
             position: absolute;
             z-index: 1688;
-            border: 2px #ccc dashed;
+            // border: 2px #ccc dashed;
             background: #fff;
             cursor: move;
             padding: 10px 20px;
@@ -177,10 +180,10 @@
           display: block;
           z-index: auto;
           opacity: .4;
-          border: 2px #ccc dashed;
+          // border: 2px #ccc dashed;
         }
         .toolbar-header {
-          opacity: 0;
+          opacity: 1;
           z-index: 100;
           position: relative;
           .label {
@@ -194,7 +197,7 @@
           }
         }
         &:hover {
-          box-shadow: inset 0 0 5px #ddd;
+          // box-shadow: inset 0 0 5px #ddd;
           background: #fff;
           select, input {
             cursor: move;
@@ -212,11 +215,11 @@
       //   transition: opacity .25s ease-in;
       // }
       .edit-form {
-        z-index: 2000;
-        border-right: 1px solid #ddd;
-        box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
+        // z-index: 2000;
+        // border-right: 1px solid #ddd;
+        // box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
         // width: 80%;
-        left: 0;
+        left: auto;
         transition: .5s;
       }
     }
@@ -287,7 +290,8 @@
 
       .edit-form {
         width: 100%;
-        overflow: scroll;
+        min-height: 100px;
+        overflow: hidden;
 
         .btn {
           margin-top: 10px;

@@ -39,6 +39,7 @@ export default class Preview extends React.Component {
     const { data, url, saveUrl } = this.props;
     store.dispatch('load', { loadUrl: url, saveUrl, data: data || [] });
     document.addEventListener('mousedown', this.editModeOff);
+
   }
 
   componentWillUnmount() {
@@ -95,6 +96,12 @@ export default class Preview extends React.Component {
       data,
       answer_data,
     });
+
+
+    if (data && data.length > 0) {
+      console.log("This is item: " + JSON.stringify(data[0]));
+      console.log("This is editItem: " + JSON.stringify(this.props.editElement));
+    }
   }
 
   _onDestroy(item) {
@@ -231,6 +238,7 @@ export default class Preview extends React.Component {
   }
 
   getElement(item, index) {
+
     if (item.custom) {
       if (!item.component || typeof item.component !== 'function') {
         // eslint-disable-next-line no-param-reassign
@@ -242,7 +250,14 @@ export default class Preview extends React.Component {
     if (SortableFormElement === null) {
       return null;
     }
-    return <SortableFormElement id={item.id} seq={this.seq} index={index} moveCard={this.moveCard} insertCard={this.insertCard} mutable={false} parent={this.props.parent} editModeOn={this.props.editModeOn} isDraggable={true} key={item.id} sortData={item.id} data={item} getDataById={this.getDataById} setAsChild={this.setAsChild} removeChild={this.removeChild} _onDestroy={this._onDestroy} />;
+    return (
+      <div className="edit-form-wrapper">
+        <SortableFormElement id={item.id} seq={this.seq} index={index} moveCard={this.moveCard} insertCard={this.insertCard} mutable={false} parent={this.props.parent} editModeOn={this.props.editModeOn} isDraggable={true} key={item.id} sortData={item.id} data={item} getDataById={this.getDataById} setAsChild={this.setAsChild} removeChild={this.removeChild} _onDestroy={this._onDestroy} />
+        <div className="edit-form" ref={this.editForm}>
+          <FormElementsEdit showCorrectColumn={this.props.showCorrectColumn} files={this.props.files} manualEditModeOff={this.manualEditModeOff} preview={this} element={item} updateElement={this.updateElement} />
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -252,13 +267,11 @@ export default class Preview extends React.Component {
     const items = data.map((item, index) => this.getElement(item, index));
     return (
       <div className={classes}>
-        <div className="edit-form" ref={this.editForm}>
-          {this.props.editElement !== null &&
-            <FormElementsEdit showCorrectColumn={this.props.showCorrectColumn} files={this.props.files} manualEditModeOff={this.manualEditModeOff} preview={this} element={this.props.editElement} updateElement={this.updateElement} />
-          }
-        </div>
         <div className="Sortable">{items}</div>
-        <PlaceHolder id="form-place-holder" show={items.length === 0} index={items.length} moveCard={this.cardPlaceHolder} insertCard={this.insertCard} />
+        <div>
+          <PlaceHolder id="form-place-holder" show={items.length === 0} index={items.length} moveCard={this.cardPlaceHolder} insertCard={this.insertCard} />
+        </div>
+
       </div>
     );
   }
