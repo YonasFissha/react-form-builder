@@ -25,6 +25,7 @@ class ReactFormBuilder extends React.Component {
   editModeOn(data, e) {
     e.preventDefault();
     e.stopPropagation();
+    console.log("This is going to be on edit: " + JSON.stringify(data));
     if (this.state.editMode) {
       this.setState({ editMode: !this.state.editMode, editElement: null });
     } else {
@@ -48,8 +49,8 @@ class ReactFormBuilder extends React.Component {
     if (this.props.toolbarItems) { toolbarProps.items = this.props.toolbarItems; }
     return (
       <DndProvider backend={HTML5Backend}>
-       <div>
-         {/* <div>
+        <div>
+          {/* <div>
            <p>
              It is easy to implement a sortable interface with React DnD. Just make
              the same component both a drag source and a drop target, and reorder
@@ -91,5 +92,5 @@ FormBuilders.Registry = Registry;
 export default FormBuilders;
 
 export {
- ReactFormBuilder, ReactFormGenerator, store as ElementStore, Registry,
+  ReactFormBuilder, ReactFormGenerator, store as ElementStore, Registry,
 };

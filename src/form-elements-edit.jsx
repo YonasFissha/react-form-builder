@@ -203,12 +203,12 @@ export default class FormElementsEdit extends React.Component {
               onEditorStateChange={this.onEditorStateChange.bind(this, 0, 'label')}
               stripPastedStyles={true} />
             <br />
-            <div className="custom-control custom-checkbox">
+            {/* <div className="custom-control custom-checkbox">
               <input id="is-required" className="custom-control-input" type="checkbox" checked={this_checked} value={true} onChange={this.editElementProp.bind(this, 'required', 'checked')} />
               <label className="custom-control-label" htmlFor="is-required">
                 Required
               </label>
-            </div>
+            </div> */}
             {/* {this.props.element.hasOwnProperty('readOnly') &&
               <div className="custom-control custom-checkbox">
                 <input id="is-read-only" className="custom-control-input" type="checkbox" checked={this_read_only} value={true} onChange={this.editElementProp.bind(this, 'readOnly', 'checked')} />

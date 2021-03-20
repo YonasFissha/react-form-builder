@@ -7,6 +7,7 @@ import update from 'immutability-helper';
 import store from './stores/store';
 import FormElementsEdit from './form-elements-edit';
 import SortableFormElements from './sortable-form-elements';
+import HeaderBar from "./form-elements/header-bar"
 
 const { PlaceHolder } = SortableFormElements;
 
@@ -252,7 +253,7 @@ export default class Preview extends React.Component {
     }
     return (
       <div className="edit-form-wrapper">
-        <SortableFormElement id={item.id} seq={this.seq} index={index} moveCard={this.moveCard} insertCard={this.insertCard} mutable={false} parent={this.props.parent} editModeOn={this.props.editModeOn} isDraggable={true} key={item.id} sortData={item.id} data={item} getDataById={this.getDataById} setAsChild={this.setAsChild} removeChild={this.removeChild} _onDestroy={this._onDestroy} />
+        <HeaderBar parent={item.parent} editModeOn={this.props.editModeOn} data={item} index={index} setAsChild={this.setAsChild} onDestroy={this._onDestroy} onEdit={this.onEdit} static={item.static} required={item.required} />
         <div className="edit-form" ref={this.editForm}>
           <FormElementsEdit showCorrectColumn={this.props.showCorrectColumn} files={this.props.files} manualEditModeOff={this.manualEditModeOff} preview={this} element={item} updateElement={this.updateElement} />
         </div>

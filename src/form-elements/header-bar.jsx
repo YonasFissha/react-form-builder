@@ -9,7 +9,7 @@ export default class HeaderBar extends React.Component {
   render() {
     return (
       <div className="toolbar-header">
-        <span className="badge badge-secondary">{this.props.data.text}</span>
+        <span className="header-title">{this.props.data.text}</span>
         <div className="toolbar-header-buttons">
           <div className="btn is-isolated" onClick={this.props.onDestroy.bind(this, this.props.data)}><i className="is-isolated fas fa-trash"></i></div>
           {!this.props.data.isContainer &&

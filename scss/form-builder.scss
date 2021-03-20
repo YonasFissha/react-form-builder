@@ -58,6 +58,8 @@
       box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.04), 0px 1px 7px rgba(0, 0, 0, 0.03);
       border-radius: 16px;
       margin-bottom: 30px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
     .edit-form {
@@ -67,7 +69,8 @@
       box-shadow: none;
       top: 0;
       right: -15px;
-      min-height: 100px;
+      min-height: 140px;
+      padding-bottom: 10px;
       width: 100%;
       border-radius: 16px;
       overflow: hidden;
@@ -115,17 +118,27 @@
               &.form-control {
                 width: 84.26%;
                 float: left;
-                &[type="checkbox"] {
-                  border: none;
-                  box-shadow: none;
-                  margin-top: 0;
-                }
+                background: #FFFFFF;
+                border: 1.5px solid rgba(#7B8497, 0.15);
+                border-radius: 8px;
               }
               margin-right: 10px;
             }
             button {
+              width: 44px;
+              height: 44px;
               float: left;
               margin-right: 5px;
+              border-radius: 8px;
+              background: #FFFFFF;
+              border: 1.5px solid rgba(123, 132, 151, 0.15);
+
+              .fa-plus-circle{
+                color: #05C46B;
+              }
+              .fa-minus-circle{
+                color: #F44336;
+              }
             }
             .dynamic-options-actions-buttons {
               margin-left: 20px;
@@ -186,9 +199,12 @@
           opacity: 1;
           z-index: 100;
           position: relative;
+          display: flex;
+          flex-direction: column;
           .label {
             position: absolute;
             left: 20px;
+            
           }
           .toolbar-header-buttons {
             position: absolute;
@@ -290,7 +306,7 @@
 
       .edit-form {
         width: 100%;
-        min-height: 100px;
+        height: 100px;
         overflow: hidden;
 
         .btn {
@@ -418,4 +434,28 @@
   padding:25px;
   text-align:center;
   font:20pt bold,"Vollkorn";color:#bbb
+}
+
+.toolbar-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(#7B8497, 0.15);
+
+    .header-title{
+      font-family: Inter;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #141414;
+
+    }
+    .fas{
+      color: #7B8497;
+    }
 }
