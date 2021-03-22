@@ -97,12 +97,6 @@ export default class Preview extends React.Component {
       data,
       answer_data,
     });
-
-
-    if (data && data.length > 0) {
-      console.log("This is item: " + JSON.stringify(data[0]));
-      console.log("This is editItem: " + JSON.stringify(this.props.editElement));
-    }
   }
 
   _onDestroy(item) {

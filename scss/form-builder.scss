@@ -95,6 +95,8 @@
             display: inline-block;
             width: 21%;
             margin-left: 0;
+            border: 1.5px solid rgba(#7B8497,0.15);
+            border-radius: 8px;
             &:last-of-type {
               width: 78%;
               margin-left: 1%;
@@ -168,9 +170,6 @@
             }
             input[type='date'] {
               height: 42px;
-            }
-            .react-star-rating {
-              display: block;
             }
             .checkbox-label, .radio-label {
               font-weight: normal;

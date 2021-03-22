@@ -280,7 +280,7 @@ class Signature extends React.Component {
         <div className="form-group">
           <ComponentLabel {...this.props} />
           {this.props.read_only === true || !!sourceDataURL
-            ? (<img src={sourceDataURL} />)
+            ? (<img alt="" src={sourceDataURL} />)
             : (<SignaturePad {...pad_props} />)
           }
           {canClear && (
@@ -463,7 +463,7 @@ class Image extends React.Component {
           <HeaderBar parent={this.props.parent} editModeOn={this.props.editModeOn} data={this.props.data} onDestroy={this.props._onDestroy} onEdit={this.props.onEdit} required={this.props.data.required} />
         }
         { this.props.data.src &&
-          <img src={this.props.data.src} width={this.props.data.width} height={this.props.data.height} />
+          <img alt="" src={this.props.data.src} width={this.props.data.width} height={this.props.data.height} />
         }
         { !this.props.data.src &&
           <div className="no-image">No Image</div>
@@ -515,7 +515,7 @@ class HyperLink extends React.Component {
       <div className={baseClasses}>
         <ComponentHeader {...this.props} />
         <div className="form-group">
-          <a target="_blank" href={this.props.data.href}>{this.props.data.content}</a>
+          <a rel="noreferrer" target="_blank" href={this.props.data.href}>{this.props.data.content}</a>
         </div>
       </div>
     );
@@ -590,7 +590,7 @@ class Camera extends React.Component {
         <div className="form-group">
           <ComponentLabel {...this.props} />
           {this.props.read_only === true && this.props.defaultValue && this.props.defaultValue.length > 0
-            ? (<div><img src={sourceDataURL} /></div>)
+            ? (<div><img alt="" src={sourceDataURL} /></div>)
             : (<div className="image-upload-container">
 
               <div style={fileInputStyle}>
@@ -603,7 +603,7 @@ class Camera extends React.Component {
 
               { this.state.img &&
                 <div>
-                  <img src={this.state.img} height="100" className="image-upload-preview" /><br />
+                  <img alt="" src={this.state.img} height="100" className="image-upload-preview" /><br />
                   <div className="btn btn-image-clear" onClick={this.clearImage}>
                     <i className="fas fa-times"></i> Clear Photo
                 </div>
@@ -669,6 +669,8 @@ class Range extends React.Component {
       return <label {...option_props}>{d}</label>;
     });
 
+
+
     let baseClasses = 'SortableItem rfb-item';
     if (this.props.data.pageBreakBefore) { baseClasses += ' alwaysbreak'; }
 
@@ -676,7 +678,7 @@ class Range extends React.Component {
       <div className={baseClasses}>
         <ComponentHeader {...this.props} />
         <div className="form-group">
-          <ComponentLabel {...this.props} />
+          {/* <ComponentLabel {...this.props} /> */}
           <div className="range">
             <div className="clearfix">
               <span className="float-left">{this.props.data.min_label}</span>

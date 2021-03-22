@@ -112,6 +112,7 @@ const cardTarget = {
 };
 
 // eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line
 export default function (ComposedComponent) {
   class Card extends Component {
     static propTypes = {

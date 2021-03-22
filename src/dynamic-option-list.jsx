@@ -76,6 +76,7 @@ export default class DynamicOptionList extends React.Component {
 
   render() {
     if (this.state.dirty) {
+      // eslint-disable-next-line
       this.state.element.dirty = true;
     }
     return (

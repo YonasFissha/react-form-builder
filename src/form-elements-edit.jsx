@@ -104,21 +104,13 @@ export default class FormElementsEdit extends React.Component {
       this.props.element.dirty = true;
     }
 
-    const this_checked = this.props.element.hasOwnProperty('required') ? this.props.element.required : false;
-    const this_read_only = this.props.element.hasOwnProperty('readOnly') ? this.props.element.readOnly : false;
     const this_default_today = this.props.element.hasOwnProperty('defaultToday') ? this.props.element.defaultToday : false;
     const this_show_time_select = this.props.element.hasOwnProperty('showTimeSelect') ? this.props.element.showTimeSelect : false;
     const this_show_time_select_only = this.props.element.hasOwnProperty('showTimeSelectOnly') ? this.props.element.showTimeSelectOnly : false;
-    const this_checked_inline = this.props.element.hasOwnProperty('inline') ? this.props.element.inline : false;
-    const this_checked_bold = this.props.element.hasOwnProperty('bold') ? this.props.element.bold : false;
-    const this_checked_italic = this.props.element.hasOwnProperty('italic') ? this.props.element.italic : false;
     const this_checked_center = this.props.element.hasOwnProperty('center') ? this.props.element.center : false;
-    const this_checked_page_break = this.props.element.hasOwnProperty('pageBreakBefore') ? this.props.element.pageBreakBefore : false;
-    const this_checked_alternate_form = this.props.element.hasOwnProperty('alternateForm') ? this.props.element.alternateForm : false;
 
-    const {
-      canHavePageBreakBefore, canHaveAlternateForm, canHaveDisplayHorizontal, canHaveOptionCorrect, canHaveOptionValue,
-    } = this.props.element;
+
+    const { canHaveOptionCorrect, canHaveOptionValue } = this.props.element;
 
     const this_files = this.props.files.length ? this.props.files : [];
     if (this_files.length < 1 || (this_files.length > 0 && this_files[0].id !== '')) {
